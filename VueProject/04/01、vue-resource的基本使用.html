@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue-resource的基本使用</title>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <script src="lib/vue-2.6.11.js"></script>
+    <script src="lib/vue-resource.js"></script>
+</head>
+<body>
+    <div id="app">
+        
+        <button type="button" class="btn btn-default" @click="get">get请求</button>
+        <button type="button" class="btn btn-default" @click="post">post请求</button>
+        <button type="button" class="btn btn-default" @click="jsonp">jsonp</button>
+        
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+
+            },
+            methods:{
+                get(){
+                    this.$http.get('http://vue.studyit.io/api/getlunbo').then(function(result){
+                        console.log(result);
+                    })
+                },
+                post(){
+                    this.$http.post('http://vue.studyit.io/api/post',{},{emulateJSON:true}).then(result=>{
+                        console.log(result.body);
+                    });
+                },
+                jsonp(){
+                    this.$http.jsonp('http://vue.studyit.io/api/jsonp').then(result=>{
+                        console.log(result.body);
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>

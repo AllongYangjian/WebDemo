@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib/vue-2.6.11.js"></script>
+    <script src="lib/vue-router.js"></script>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 0;
+            font-style: 20px;
+        }
+
+        #div_header {
+            height: 64px;
+            background-color: pink;
+        }
+
+        .main_container {
+            display: flex;
+            height: 600px;
+            overflow: hidden;
+        }
+
+        #div_nav {
+            flex: 2;
+            background-color: gray;
+            height: 100%;
+        }
+        #div_container{
+            flex:8;
+            background-color: red;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <router-view></router-view>
+        <div class="main_container">
+            <router-view name="left"></router-view>
+            <router-view name="main"></router-view>
+        </div>
+
+    </div>
+
+    <template id="header">
+        <h1 id="div_header">头部</h1>
+    </template>
+    <template id="left">
+        <div id="div_nav">导航栏</div>
+    </template>
+    <template id="container">
+        <div id="div_container">内容</div>
+    </template>
+
+    <script>
+        var header = {
+            template: "#header"
+        }
+        var left = {
+            template: "#left"
+        }
+        var container = {
+            template: "#container"
+        }
+
+        var router = new VueRouter({
+            routes: [{
+                path: "/",
+                components: {
+                    //定义视图名称
+                    'default': header,
+                    'left': left,
+                    'main': container
+                }
+            }]
+        })
+
+        var app = new Vue({
+            el: "#app",
+            data: {
+
+            },
+            methods: {
+
+            },
+            router
+        })
+    </script>
+</body>
+
+</html>

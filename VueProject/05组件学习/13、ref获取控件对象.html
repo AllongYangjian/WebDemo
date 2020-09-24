@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib/vue-2.6.11.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="getElement">获取组件</button>
+        <h3 ref="title" @click="show">3号标题</h3>
+        <login ref="login"></login>
+    </div>
+    <template id ="temp">
+        <div>
+            <h2>hh</h2>
+        </div>
+    </template>
+    <script>
+        
+        var com = {
+            template:"#temp",
+            data(){
+                return {
+
+                }
+            },
+            methods:{
+                show(){
+                    alert('hh');
+                }
+            }
+        }
+
+        var app = new Vue({
+            el:"#app",
+            data:{
+
+            },
+            methods:{
+                show(){
+                    alert('hh');
+                },
+                getElement(){
+                    // alert(this.refs.title.innerText);
+                    // console.log(this.$refs.title.innerText);
+                    this.$refs.login.show();
+                }
+            },
+            components:{
+                login:com
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib/vue-2.6.11.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="msg = '哈哈'">改变值</button>
+        <login :msg="msg"></login>
+    </div>
+    <script> 
+        var login = Vue.component('login',{
+            template:'<h1>{{msg}}</h1>',
+            props:['msg']
+        })
+        var app = new Vue({
+            el:"#app",
+            data:{
+                msg:"呵呵"
+            }
+        })
+    </script>
+</body>
+</html>

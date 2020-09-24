@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="./lib/vue-2.6.js"></script>
+</head>
+
+<body>
+    <!-- 阻止事件的传递之 .stop事件 -->
+    <!-- <div id="app" @click="parentHandler" style="width: 100px;height: 100px;background-color: green;">
+        <input type="button" value="戳我" @click.stop="childHandler">
+    </div> -->
+
+    <!-- .prevent 替换默认事件 -->
+    <!-- <div id="app"style="width: 100px;height: 100px;background-color: green;">
+        <a href="http://www.baidu.com" @click.prevent="linkHandler">跳转</a>
+    </div> -->
+
+    <!-- .capture 会事先触发父元素的事件，然后触发子元素的事件 -->
+    <!-- <div id="app" @click.capture="parentHandler" style="width: 100px;height: 100px;background-color: green;">
+        <input type="button" value="戳我" @click="childHandler">
+    </div> -->
+
+    <!-- 只有点击自己才能触发，不能通过传递触发 -->
+    <!-- <div id="app" @click.self="parentHandler" style="width: 100px;height: 100px;background-color: green;">
+        <input type="button" value="戳我" @click="childHandler">
+    </div> -->
+
+      <!-- .once 只触发一次,需和其他时间修饰符一起使用 -->
+    <div id="app"style="width: 100px;height: 100px;background-color: green;">
+        <a href="http://www.baidu.com" @click.prevent.once="linkHandler">跳转</a>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+
+            },
+            methods: {
+                parentHandler() {
+                    console.log("parentHandler");
+                },
+                childHandler() {
+                    console.log("childHandler");
+                },
+                linkHandler() {
+                    console.log("阻止链接跳转事件");
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过滤器的使用</title>
+    <script src="/lib/vue-2.6.11.js"></script>
+</head>
+<body>
+     <div id="app">
+        {{ message | msgFormat('SB') | test}}
+     </div>
+     <script>
+         //定义过滤器
+         Vue.filter('msgFormat',function(msg,arg){
+            return msg.replace(/善良/g,arg);
+         });
+
+         Vue.filter('test',function(msg){
+             return msg+"sfasd";
+         });
+         var app =new Vue({
+            el:"#app",
+            data:{
+                message:"这是一个善良的人在做善良的事."
+            }
+         });
+     </script>
+</body>
+</html>

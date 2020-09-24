@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>品牌列表</title>
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.css">
+    <script src="/lib/vue-2.6.11.js"></script>
+</head>
+
+<body>
+    <div id="app">
+
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">添加品牌</h3>
+            </div>
+            <div class="panel-body form-inline">
+                <label>ID：<input type="text" class="form-control" v-model="id"> </label>
+                <label for="">Name: <input type="text" class="form-control" v-model="name" @keyup.f2="addBrand"></label>
+
+                <button type="button" class="btn btn-info" @click="addBrand">添加</button>
+                <label for="">搜索数据关键字：<input type="text" class="form-control" v-model="keywords" v-focus v-color="'green'"></label>
+            </div>
+        </div>
+
+
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Ctime</th>
+                    <th>Operation</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in search(keywords)" :key="item.id">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.ctime | dateFormat}}</td>
+                    <td>
+                        <button type="button" class="btn btn-warning" @click="deleteBrand(item.id)">删除</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>{{new Date() | dateFormat }}</p>
+    </div>
+</body>
+<script>
+    //定义全局过滤器
+    Vue.filter("dateFormat", function (param) {
+        var date = new Date(param);
+        const y = date.getFullYear();
+        const m = (date.getMonth() + 1).toString().padStart(2, '0');
+        const d = date.getDate().toString().padStart(2, '0');
+        const h = date.getHours().toString().padStart(2, '0');
+        const mi = date.getMinutes().toString().padStart(2, '0');
+        const s = date.getSeconds().toString().padStart(2, '0');
+        return `${y}-${m}-${m} ${h}:${mi}:${s}`;
+    });
+
+    //自定义全局按键修饰符
+    Vue.config.keyCodes.f2 = 113;
+
+    // 自定义全局指令 v-focus 行为相关的操作在inserted中使用
+    //其中，参数1，指令的名称，不需要加 v- 前缀，使用的时候，必须加上v-
+    // 参数2：一个对象，包含指令相关函数，在特定的时候被触发调用
+    Vue.directive('focus',{
+        //每单指定绑定到元素上的时候，会立即执行bind函数，只执行一次
+        //在每个函数中，第一个参数 永远是 e1 表示被绑定了指令的那个元素，这个e1参数，是一个原生的js对象，
+        bind:function(e1){
+            //在元素刚绑定指令的时候，还没有插入到dom元素中，这个时候，调用focus方法是不起作用的，因为，一个元素，只有插入dom元素中后，才能获取焦点
+            // e1.focus();
+        },
+        inserted:function(e1){
+            e1.focus();
+        },
+        update:function(e1){
+    
+        }
+    });
+
+    //样式相关的操作在 bind中 调用
+    Vue.directive('color',{
+        bind:function(e1,binding){
+            // e1.style.color = 'red';
+            // e1.style.color = binding.expression;
+            e1.style.color = binding.value;
+            console.log(binding.name);
+        }
+    })
+
+    var app = new Vue({
+        el: "#app",
+        data: {
+            id: '',
+            name: '',
+            keywords: '',
+            list: [{
+                    id: 1,
+                    name: "奔驰",
+                    ctime: new Date()
+                },
+                {
+                    id: 2,
+                    name: "宝马",
+                    ctime: new Date()
+                },
+            ]
+        },
+        methods: {
+            addBrand() {
+                this.list.push({
+                    id: this.id,
+                    name: this.name,
+                    ctime: new Date()
+                });
+                this.id = this.name = '';
+            },
+            deleteBrand(id) {
+                //方法一
+                // this.list.some((v,i)=>{
+                //     if(v.id == id){
+                //         this.list.splice(i,1);
+                //         return true;
+                //     }
+                // });
+                // 方法二
+                var index = this.list.findIndex(item => {
+                    if (item.id == id) {
+                        return true;
+                    }
+                });
+                this.list.splice(index, 1);
+            },
+            search(keys) {
+                // var newList = [];
+                // this.list.forEach(element => {
+                //     if(element.name.indexOf(keys)!==-1){
+                //         newList.push(element);
+                //     }
+                // });
+                // return newList;
+
+                return this.list.filter(item => item.name.includes(keys));
+            }
+        },
+        //定义私有过滤器
+        filters: {
+            dateFormat(param) {
+                console.log("---");
+                var date = new Date(param);
+                const y = date.getFullYear();
+                const m = (date.getMonth() + 1).toString().padStart(2, '0');
+                const d = date.getDate().toString().padStart(2, '0');
+                const h = date.getHours().toString().padStart(2, '0');
+                const mi = date.getMinutes().toString().padStart(2, '0');
+                const s = date.getSeconds().toString().padStart(2, '0');
+                return `${y}-${m}-${m} ${h}:${mi}:${s}`;
+            }
+        },
+        directives:{
+            focus:{
+                inserted:function(e1){
+                    e1.focus();
+                }
+            },
+            color:{
+                bind:function(e1,binding){
+                    e1.style.color = binding.value;
+                }
+            }
+        },
+        beforeCreate() {
+            
+        },
+        created() {
+            
+        },
+        beforeMount() {
+            
+        },
+        mounted() {
+            
+        },
+        beforeDestroy() {
+            
+        },
+        destroyed() {
+            
+        },
+    })
+</script>
+
+</html>

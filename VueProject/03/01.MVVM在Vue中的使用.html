@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="./lib/vue-2.6.js"></script>
+</head>
+<body>
+    <!-- Vue实例所控制的的元素区域，就是MVVM中的V -->
+    <div id="app">
+        <p>{{message}}</p>
+    </div>
+
+    <script>
+        // 初始化的vm对象，就是MVVM中的VM
+        var vm = new Vue({
+            el:"#app",
+            // 对象中的data，就是MVVM中的 M
+            data:{
+                message:'MVVM的使用'
+            }
+        });
+    </script>
+</body>
+</html>

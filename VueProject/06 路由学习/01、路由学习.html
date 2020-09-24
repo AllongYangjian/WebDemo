@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib/vue-2.6.11.js"></script>
+    <script src="lib/vue-router.js"></script>
+    <style>
+        .v-enter, 
+        .v-leave-to{
+            opacity: 0;
+            transform: translateX(140px);
+        }
+        .v-enter-active,
+        .v-leave-active{
+            transition:all 0.5s ease
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <a href="#/login">登录</a> -->
+        <!-- <a href="#/register">注册</a> -->
+        <!-- 替换方法 
+            to:要跳转的界面
+            tag:router-link 要渲染成的对象，默认是a标签
+        -->
+        <router-link to="/login" tag="span">登录</router-link>
+        <router-link to="/register" tag="label">注册</router-link>
+
+        <!-- 这是vue-router提供的元素，专门用来当做占位符，将来，路由规则，匹配到的组件，
+        就会展示到这个router-view中去 -->
+
+        <!-- 给界面设置跳转动画 -->
+        <transition mode="out-in">
+            <router-view></router-view>
+        </transition>
+        
+    </div>
+    <script>
+        var login = {
+            template: '<h1>登录</h1>'
+        }
+
+        var register = {
+            template:'<h1>注册</h1>'
+        }
+
+        //创建一个vue-router对象
+        var routerObj = new VueRouter({
+            routes: [
+                // {path:'/',component:login}, 这种方式也可以设置默认界面，但是url路径不会变化
+                {path:"/",redirect:'/login'},//设置默认页面，通过重定向设置跳转到默认页面
+                {path:'/login',component:login},
+                {path:'/register',component:register}
+            ]
+        });
+        var app = new Vue({
+            el: "#app",
+            data: {
+
+            },
+            methods: {
+
+            },
+            router:routerObj //将router绑定到vue
+        })
+    </script>
+</body>
+
+</html>

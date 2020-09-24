@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib/vue-2.6.11.js"></script>
+    <!-- 
+        添加过度的类名
+     -->
+    <style>
+        .v-enter,
+        .v-leave-to {
+            opacity: 0;
+            transform: translateX(150px);
+        }
+
+        .v-enter-active,
+        .v-leave {
+            transition: all 0.4s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <button type="button" class="btn btn-default" @click="flag = !flag">Toggle</button>
+
+        <transition>
+            <p v-if="flag">这一个个文档</p>
+        </transition>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                flag: true
+            },
+            methods: {
+
+            }
+        });
+    </script>
+</body>
+
+</html>

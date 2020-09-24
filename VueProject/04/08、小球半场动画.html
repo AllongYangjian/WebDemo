@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib/vue-2.6.11.js"></script>
+
+    <style>
+        #ball{
+            width: 15px;
+            height: 15px;
+            background-color: red;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        
+        <button type="button" class="btn btn-default" @click="flag = !flag">toggle</button>
+        <transition @before-enter="beforeEnter" @enter="enter" @after-enter="afterEnter">
+            <div id="ball" v-show="flag">
+
+            </div>
+        </transition>
+        
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                flag: false
+            },
+            methods:{
+                beforeEnter(el,down){
+                    el.style.transform="translate(0,0)";
+                },
+                enter(el,down){
+                    el.offsetWidth
+                    el.style.transform = "translate(150px,150px)";
+                    el.style.transition = "all 1s ease";
+                    //down 就是afterEneter这个函数的引用
+                    down();
+                },
+                afterEnter(el,down){
+                    this.flag = !this.flag;
+                }
+
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib/vue-2.6.11.js"></script>
+</head>
+<body>
+    <!-- 
+        1、子组件绑定一个方法，该方法是用来调用父组件的中定义的方法的，
+        2、在子组件中触发该绑定函数 $emit
+     -->
+    <div id="app">
+        <login @func="show">
+
+        </login>
+    </div>
+
+    <template id="temp1">
+        <div>
+            <h1>这是子组件</h1>
+            <!-- <button @click="$emit('func','123')">点击触发父组件中的方法</button> -->
+            <button @click="myclick">点击触发父组件中的方法</button>
+
+        </div>
+    </template>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+
+            },  
+            methods:{
+                show(data){
+                    alert('这是父组件的方法'+data)
+                }
+            },
+            components:{
+                login:{
+                    template:"#temp1",
+                    methods:{
+                        myclick(){
+                            // console.log('--');
+                            this.$emit('func',123);
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

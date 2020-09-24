@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-on</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="点击" v-on:click="doIt">
+        <input type="button" value="简写" @click="doIt">
+        <input type="button" value="双击" @dblclick="doIt">
+        <span @click="changeContent">{{message}}</span><br>
+        <input type="button" @click="test(123)" value="函数传参">
+        <input type="text" @keyup.enter="touch(this)" value="事件修饰符">
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                message:"v-on"
+            },
+            methods:{
+                    doIt:function(){
+                        alert("heh");
+                    },
+                    changeContent:function(){
+                        this.message += "哈哈哈!!!";
+                    },
+                    test:function(p1){
+                        console.log(p1);
+                    },
+                    touch:function(p){
+                        alert(p);
+                    }
+                }
+        })
+    </script>
+</body>
+</html>

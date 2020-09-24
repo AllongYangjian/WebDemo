@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/animate.css">
+    <script src="lib/vue-2.6.11.js"></script>
+    
+</head>
+
+<body>
+    <div id="app">
+
+        <button type="button" class="btn btn-default" @click="flag = !flag">Toggle</button>
+
+        <transition enter-active-class="animated bounceIn" 
+        leave-active-class="animated bounceOut"
+        :duration="{enter:200,leave:400}">
+            <p v-show="flag" class="animated">这一个个文档</p>
+        </transition>
+    </div>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                flag: false
+            },
+            methods: {
+
+            }
+        });
+    </script>
+</body>
+
+</html>

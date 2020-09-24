@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件创建方式二</title>
+    <script src="lib/vue-2.6.11.js"></script>
+</head>
+<body>
+    <div id="app">
+        <mycom2></mycom2>
+    </div>
+    <script>
+        Vue.component('mycom2',{
+            template:'<h2>组件创建<span>gg</span>方式二</h2>'
+        });
+       
+
+        var app = new Vue({
+            el:"#app",
+            data:{
+
+            },
+            methods:{
+
+            }
+        });
+    </script>
+</body>
+</html>

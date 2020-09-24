@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item,index) in region">
+                {{index+1+','+item}}
+            </li>
+            <li v-for="item in province">
+                {{item}}
+            </li>
+        </ul>
+    </div>
+
+</body>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            region:['北京','上海','广州','深圳'],
+            province:['江苏','浙江','上海','广州','深圳']
+        }
+    })
+</script>
+</html>

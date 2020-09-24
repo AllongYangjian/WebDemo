@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+}
+
+.bed-item {
+    background-color: black;
+    float: left;
+    margin: 8px;
+}
+
+.bed-item-title {
+    color: white;
+    height: 48px;
+    font: 20px 'Micrisoft Yahe';
+    padding: 0;
+    margin: 0;
+    display:flex;
+}
+
+.bed-item-title > label:first-child {
+    width: 48px;
+    height: 100%;
+    text-align: center;
+    line-height: 48px;
+    background-color: thistle;
+    border-radius: 100px;
+    display: inline-block;
+}
+
+.bed-item-title>div {
+    display:inline-block;
+    padding-left: 8px;
+    width: 64px;
+    height:48px;
+    font-size:16px;
+    /* position: absolute; */
+    /* background-color:red; */
+}
+
+.bed-item-title > label:last-child {
+    width: 48px;
+    height: 100%;
+    line-height: 48px;
+    text-align: center;
+    color: red;
+}
+
+.bed-item-content{
+    width: 100%;
+    color: white;
+    /* background-color: teal; */
+}
+
+.bed-item-content-equip{
+    width: 100%;
+    height: 100%;
+}
+
+.bed-item-bottom{
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    background-color: rosybrown;
+    text-align: center;
+}
+
+.bed-item-fixed{
+    background-color: red;
+    width: 100%;
+    height: 72px;
+}
+
+.bed-item-fixed-key{
+    height: 36px;
+    /* display: inline-block; */
+    float: left;
+    background-color: rgb(14, 186, 238);
+    border: 1px solid black;
+    text-align: center;
+}
+
+.bed-item-fixed-key span{
+    display: block;
+    font-size: 16px;
+}
+.bed-item-fixed-key span:first-child{
+    font-size: 10px;
+}
+
+.btn{
+    margin-right: 8px;
+}

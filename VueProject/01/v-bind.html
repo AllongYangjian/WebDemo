@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .active{
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <img v-bind:src="imgSrc" v-bind:title="imgTitle">
+        <img :src="imgSrc">
+        <img :src="imgSrc" :title="imgTitle" :class="isShow?'active':''" @click="toggleStyle">
+        <img :src="imgSrc" :title="imgTitle" :class="{active:isShow}" @click="toggleStyle">
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            imgSrc:"https://www.baidu.com/img/PCfb_5bf082d29588c07f842ccde3f97243ea.png",
+            imgTitle:'百度',
+            isShow:true
+        },
+        methods:{
+            toggleStyle:function(){
+                console.log('sdfa');
+                this.isShow = !this.isShow;
+            } 
+        }
+    })
+</script>
+</html>

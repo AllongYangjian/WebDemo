@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <script src="lib/vue-2.6.11.js"></script>
+    <style>
+        span{
+            display: inline-block;
+            width: 50px;
+            text-align: center;
+            margin-left: 8px;
+            margin-right: 8px;
+            border: 1px solid burlywood;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <mycom></mycom>
+        <counter></counter>
+    </div>
+
+    <!-- 定义counter组价模板 -->
+    <template id="count">
+        <div class="form-inline">
+            <button @click="decrement">-</button> <span>{{count}}</span><button @click="increment">+</button>
+           
+        </div>
+    </template>
+    
+    <script>
+        Vue.component('mycom',{
+            template:'<h1>这是全局组件{{msg}}</h1>',
+            data:function(){
+                return {msg:"这是组件中data定义的数据"};
+            }
+        })
+
+        Vue.component('counter',{
+            template:'#count',
+            data:function(){
+                return {count:0};
+            },
+            methods:{
+                increment(){
+                    this.count++;
+                },
+                decrement(){
+                    this.count--;
+                    if(this.count<0){
+                        this.count = 0;
+                    }
+                }
+            }
+        })
+
+        var app = new Vue({
+            el:"#app",
+            data:{
+
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue data测试</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">{{message}}
+    <p>{{school.name}} {{school.tel}}</p>
+    <ul>
+        <li>{{campus[0]}}</li>
+        <li>{{campus[2]}}</li>
+        <li>{{campus[1]}}</li>
+    </ul>
+</div>
+</body>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            message:"Hello Data",
+            school:{
+                org:"杭州奥朗信息科技有限公司",
+                tel:"58111668"
+            },
+            campus:["杭州","上海","北京"]
+        }
+    });
+</script>
+</html>

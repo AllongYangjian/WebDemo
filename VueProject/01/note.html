@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>记事本</title>
+    <style>
+        #container{
+            margin: 0 auto;
+            width: 300px;
+        }
+
+        #container input{
+            background-color: white;
+            border: 1px solid gray;
+            width: 100%;
+            text-indent: 8px;
+            padding: 8px 0px;
+            display: block;
+        }
+
+        #container ul{
+            width: 100%;
+           
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            list-style-type: none;
+        }
+
+        #container ul li{
+            width: 100%;
+            margin: 0;
+            padding: 8px 0;
+            position: relative;
+            background-color: whitesmoke;
+            border-bottom: 1px solid gray;
+        }
+
+        .destory{
+            width: 16px;
+            border: 0px;
+            right: 0;
+            visibility: hidden;
+            display:inline-block;
+            margin-left: 16px;
+            position: relative;
+        }
+
+        .destory li:hover{
+            visibility: hidden;
+        }
+
+        #container p{
+            margin:  0;
+            padding:0;
+            background-color: lightgray;
+            padding: 4px 4px;
+        }
+
+        #container p a{
+            text-decoration: none;
+            float:right;
+            color: gray;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <input type="text" v-model="inputValue" autofocus="true" autocomplete="true"  @keyup.enter="addItem">
+        <ul>
+            <li v-for="(item,index) in noteList">
+                <span style="margin-left: 8px;">{{index+1}}.</span>{{item}}<label style="display: inline-block;"></label><label class="destroy" @click="removeItem(index)" type="button" >x</label>
+            </li>
+        </ul>
+        <p v-show="noteList.length>0">{{noteList.length}} items <a href="#" @click="remove">clear</a></p>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el:"#container",
+        data:{
+            inputValue:"hh",
+            noteList:['好好学习','天天向上']
+        },
+        methods:{
+            removeItem:function(idx){
+                this.noteList.splice(idx,1);
+            },
+            addItem:function(){
+                this.noteList.push(this.inputValue);
+                this.inputValue = "";
+            },
+            remove:function(){
+                this.noteList = [];
+            }
+        }
+    })
+</script>
+</html>

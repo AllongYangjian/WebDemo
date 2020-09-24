@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件创建方式一</title>
+    <script src="lib/vue-2.6.11.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!--1.3 向使用普通HTML标签那样使用组件，但是名称要用 '-' 隔开 -->
+        <my-com1></my-com1>
+    </div>
+    <script>
+        //1.1 使用Vue.extend来创建全局的Vue组件
+        var com1 = Vue.extend({
+            //通过template属性，指定展示的HTML结构
+            template:'<h3>这是使用Vue.extend 创建的组件</h3>'
+        })
+        //1.2 使用Vue.component('组件名称',创建出来的组件模板对象)
+        
+        Vue.component('myCom1',com1);
+
+        // Vue.component('myCom1',Vue.extend({
+        //     //通过template属性，指定展示的HTML结构
+        //     template:'<h3>这是使用Vue.extend 创建的组件</h3>'
+        // }));
+
+        var app = new Vue({
+            el:"#app",
+            data:{
+
+            },
+            methods:{
+
+            }
+        });
+    </script>
+</body>
+</html>

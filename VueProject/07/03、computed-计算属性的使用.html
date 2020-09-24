@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib/vue-2.6.11.js"></script>
+    <script src="lib/vue-router.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" name="" v-model="firstname" id="">
+        <input type="text" name="" v-model="lastname" id="">
+        <input type="text" name="" v-model="fullname" id="">
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                firstname:'',
+                lastname:''
+            },
+            methods:{
+
+            },
+            computed:{
+                //像使用属性一样使用该方法
+                'fullname':function(){
+                    return this.firstname+"-"+this.lastname;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
