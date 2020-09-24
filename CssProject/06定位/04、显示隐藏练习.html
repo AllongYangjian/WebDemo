@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            position: relative;
+            width: 400px;
+            height: 200px;
+            margin: 100px auto;
+            background-color: pink;
+        }
+
+        .container img{
+            width: 100%;
+            height: 100%;
+        }
+
+        .container::before{
+            display: none;
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.4) url('img/hkm.png') no-repeat center;
+        }
+
+        .container:hover::before{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- <div class="mask"></div> -->
+        <img src="img/01.jpg" alt="">
+    </div>
+
+    <div class="container">
+        <!-- <div class="mask"></div> -->
+        <img src="img/01.jpg" alt="">
+    </div>
+
+    <div class="container">
+        <!-- <div class="mask"></div> -->
+        <img src="img/01.jpg" alt="">
+    </div>
+</body>
+</html>

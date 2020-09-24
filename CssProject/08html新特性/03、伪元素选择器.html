@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?792kx3');
+            src: url('fonts/icomoon.eot?792kx3#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?792kx3') format('truetype'),
+                url('fonts/icomoon.woff?792kx3') format('woff'),
+                url('fonts/icomoon.svg?792kx3#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
+        div.parent {
+            position: relative;
+            width: 200px;
+            height: 150px;
+            margin: 100px auto;
+            background-color: pink;
+        }
+
+        div.parent::before {
+            position: absolute;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            left: 0;
+            top: 75px;
+            line-height: 20px;
+            margin-top: -10px;
+            content: "sb";
+        }
+
+        div.parent::after {
+            position: absolute;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            right: 0;
+            top: 75px;
+            line-height: 20px;
+            margin-top: -10px;
+            content: "bs";
+        }
+
+        div.child{
+            position: relative;
+            width: 150px;
+            height: 35px;
+            border: 1px solid red;
+        }
+
+        div.child::after{
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            content:'\e98c';
+            font-size: 20xp;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="parent">
+
+    </div>
+
+    <div class="child">
+
+    </div>
+</body>
+
+</html>

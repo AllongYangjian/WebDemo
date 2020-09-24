@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+         margin: 0;
+         padding: 0;
+        }
+        .tra {
+            width: 0;
+            height: 0;
+            border-color: transparent red transparent transparent;
+            border-width: 40px 20px 0 0;
+            border-style: solid;
+        }
+
+        .price {
+            width: 164px;
+            height: 30px;
+            line-height: 30px;
+            margin: 100px auto;
+            border: 1px solid red;
+        }
+
+        .miaosha {
+            position: relative;
+            float: left;
+            width: 80px;
+            height: 100%;
+            text-align: center;
+            color: white;
+            text-align: center;    
+            margin-right: 8px;
+            background-color: red;
+
+        }
+
+        .trangle{
+            position: absolute;
+            width: 0;
+            height: 0;
+            right: 0;
+            top: 0;
+            border-color: transparent white transparent transparent;
+            border-width: 30px 14px 0 0;
+            border-style: solid;
+            right: 0px;
+        }
+
+        .pri{
+            text-decoration: line-through;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="tra">
+
+    </div>
+
+    <div class="price">
+        <span class="miaosha">
+            ￥1650
+            <i class="trangle"></i>
+        </span>
+        <span class="pri">￥1650</span>
+    </div>
+<!-- 存在表白你和浏览器缩放有关 -->
+    <div class="parent" style="width:100px;height:40px;border:1px solid red;margin: 200px auto;">
+        <span class="child" style="float: left;width: 80px;height:100%;background-color: red;">
+
+        </span>
+    </div> 
+</body>
+
+</html>

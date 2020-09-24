@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .text1{
+            width: 80px;
+            height: 100px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            background-color: pink;
+        }
+
+        .text2{
+            display: -webkit-box;
+            width: 100px;
+            height: 65px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="text1">
+        这是一段非常流弊的代码
+    </div>
+    <div class="text2">
+        这是一段非常流弊的代码
+        这是一段非常流弊的代码
+        这是一段非常流弊的代码
+    </div>
+</body>
+</html>

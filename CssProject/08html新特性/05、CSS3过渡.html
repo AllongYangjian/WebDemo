@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            margin: 10px auto;
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+            /* transition: width 1s ease 0s, height 1s ease 0s; */
+            transition: all 1s;
+        }
+
+        .box:hover{
+            width: 400px;
+            height: 400px;
+            background-color: purple;
+        }
+
+        .bar{
+            margin: 10px auto;
+            width: 150px;
+            height: 15px;
+            border:1px solid red;
+            border-radius: 7.5px;
+        }
+
+        .bar_in{
+            width: 50%;
+            height: 100%;
+            border-radius: 7.5px;
+            background-color: red;
+            transition: width 1s;
+        }
+
+        .bar:hover .bar_in{
+            width: 100%;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="box">
+    </div>
+
+    <div class="bar">
+        <div class="bar_in">
+
+        </div>
+    </div>
+</body>
+
+</html>
