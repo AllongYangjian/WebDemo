@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=()=>{
+            var nodes = document.querySelectorAll(".list >li >a");
+            // nodes.forEach(item=>{
+            //     item.onclick=()=>{
+            //         this.parentNode.style.display = 'none';
+            //     }
+            // })
+            for(var x  =0;x<nodes.length;x++){
+                nodes[x].onclick = function(){
+                    this.parentNode.style.display = 'none';
+                }
+            }
+        }
+    </script>
+</head>
+<body>  
+    <ul class="list">
+        <li>xxxx<a href="#">删除</a></li>
+        <li>xx---<a href="#">删除</a></li>
+        <li>xxxxsdfa<a href="#">删除</a></li>
+        <li>xxxaaaax<a href="#">删除</a></li>
+        <li>xxxddddddx<a href="#">删除</a></li>
+        <li>xxxxdddddddd<a href="#">删除</a></li>
+    </ul>
+</body>
+</html>

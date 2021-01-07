@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap{
+            /* position: relative; */
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+
+        .inner1{
+            position: relative;
+            width: 150px;
+            height: 150px;
+            background-color: bisque;
+            border: 1px solid rebeccapurple;
+        }
+
+        .inner2{
+            /* position: relative; */
+            /* position: fixed; */
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            border: 10px solid red;
+        }
+    </style>
+    <script>
+        window.onload = ()=>{
+            var node = document.querySelector(".inner2");
+            console.log(node.offsetParent);
+            console.log(node.offsetTop);//参照offsetParent的内边距边界的
+            console.log(node.offsetLeft);//参照offsetParent
+        }
+
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        wrap
+        <div class="inner1">
+            <!-- inner1 -->
+            <div class="inner2">
+                inner2
+            </div>
+        </div>
+    </div>
+</body>
+</html>

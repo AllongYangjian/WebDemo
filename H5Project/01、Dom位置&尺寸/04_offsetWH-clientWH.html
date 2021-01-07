@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onresize = function(){
+            var w = document.documentElement.clientWidth;
+            var h = document.documentElement.clientHeight;
+            console.log("ClientWH",w,h);
+            var w = document.documentElement.offsetWidth;
+            var h = document.documentElement.clientHeight;
+            console.log("offsetWH",w,h);
+        }
+    </script>
+</head>
+<body style="width: 3000px;height: 3000px;">
+
+
+
+</body>
+</html>

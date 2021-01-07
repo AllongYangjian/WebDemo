@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        html,body{
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #wrapper{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        #wrapper >img{
+            width: 48px;
+        }
+    </style>
+
+    <script>
+        window.onload = function(){
+            let r = 130;
+            var imgNodes = document.querySelectorAll("#wrapper > img");
+            document.onmousemove = function(ev){
+                ev = ev||event;
+                 for(var x= 0;x<imgNodes.length;x++){
+                     var a = imgNodes[x].getBoundingClientRect().left+imgNodes[x].offsetWidth/2 - ev.clientX;
+                     var b = imgNodes[x].getBoundingClientRect().top + imgNodes[x].offsetWidth/2-ev.clientY;
+                    
+                     var c = Math.sqrt(a*a+b*b);
+                     if(c>=r){
+                         c = r;
+                     }
+
+                     imgNodes[x].style.width = 64-c*(64-48)/r+"px";
+
+                 }   
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="wrapper">
+        <img src="./img/epr.png" alt="">
+        <img src="./img/eps.png" alt="">
+        <img src="./img/epu.png" alt="">
+        <img src="./img/epy.png" alt="">
+        <img src="./img/eqg.png" alt="">
+    </div>
+</body>
+</html>
