@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .test{
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            left: 300px;
+            top: 250px;
+            background-color: black;
+        }
+
+        .box{
+            position: absolute;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="test"></div>
+
+    <script>
+        window.onload = function(){
+            var testNode = document.querySelector(".test");
+
+            var startX = testNode.offsetLeft;
+            var startY = testNode.offsetTop;
+
+            var deg = 0;
+            var step =100 ;
+            
+            setInterval(function(){
+                deg++;
+                testNode.style.left = startX+ (deg*Math.PI/180)*step/2 +"px";
+                testNode.style.top = startY+ Math.sin(deg*Math.PI/180)*step*2+"px";
+
+                var node = document.createElement("div");
+                node.classList.add("box");
+                node.style.left = testNode.offsetLeft+"px";
+                node.style.top = testNode.offsetTop+"px";
+                document.body.appendChild(node);
+
+                if(deg >=360){
+                    deg = 0;
+                }
+            },1000/60);
+        }
+    </script>
+</body>
+</html>

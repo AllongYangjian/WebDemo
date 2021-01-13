@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圆形</title>
+    <style>
+
+        body{
+            background-color: pink;
+        }
+        canvas{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            background-color: white;
+            /* background-color: rgba(red, green, blue, alpha); */
+        }
+    </style>
+</head>
+<body>
+    <canvas width="400" height="400"></canvas>
+
+    <script>
+        window.onload = ()=>{
+            var ctx = document.querySelector("canvas");
+            if(ctx.getContext){
+                var context = ctx.getContext("2d");
+
+                // context.strokeStyle="#000000";
+                // context.save();
+                // context.beginPath();
+                // context.arc(100,100,10,0,360);
+                // context.fill();
+                // context.restore();
+
+                var arr = [];
+
+                setInterval(()=>{
+                    context.clearRect(0,0,ctx.width,ctx.height);
+                    console.log(arr);
+                    arr.forEach((item,index)=>{
+                        if(item.alpha<0){
+                            arr.splice(index,1);
+                        }
+                        item.r++;
+                        item.alpha-=0.01;
+                    })
+
+                    arr.forEach(item=>{
+                        context.save();
+                        context.fillStyle = "rgba("+item.red+","+item.green+","+item.blue+","+item.alpha+")";
+                        context.beginPath();
+                        context.arc(item.x,item.y,item.r,0,360);
+                        context.fill();
+                        context.restore();
+
+                    })
+                },1000/60);
+
+                setInterval(()=>{
+                    var x = Math.random()*ctx.width;
+                    var y = Math.random()*ctx.height;
+                    var r = Math.random()*100;
+                    var red = Math.random()*255;
+                    var green = Math.random()*255;
+                    var blue = Math.random()*255;
+                    var alpha = 1;
+
+                    // var r = Math.random()*100;
+
+                    arr.push({x:x,y:y,r:r,red:red,green:green,blue:blue,alpha:alpha});
+                },400);
+
+
+            }
+        }
+    </script>
+</body>
+</html>

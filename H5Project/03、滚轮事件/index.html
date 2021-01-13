@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrapper{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="wrapper">
+
+    </div>
+    <script>
+        // window.onload = function(){
+            var selector = document.querySelector("#wrapper");
+            if(selector.addEventListener){
+                selector.addEventListener('click',function(){
+                    console.log(1,this);
+                });
+                selector.addEventListener('click',function(){
+                    console.log(2);
+                });
+                selector.addEventListener('click',function(){
+                    console.log(3);
+                });
+            }else{
+                selector.attachEvent("onclick",function(){
+                    console.log(1,this);
+                });
+                selector.attachEvent("onclick",function(){
+                    console.log(2);
+                });
+                selector.attachEvent("onclick",function(){
+                    console.log(3);
+                });
+            }
+        // }
+    </script>
+</body>
+</html>

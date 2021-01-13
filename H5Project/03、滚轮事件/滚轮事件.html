@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right:  0;
+            margin: auto;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+
+    </div>
+    <script type="text/javascript">
+        window.onload  = function(){
+            var node = document.querySelector(".wrapper");
+            if(node.addEventListener){
+                node.addEventListener("DOMMouseScroll",function(ev){
+                        ev = ev||event;
+                        console.log(ev.detail);
+                })
+            }
+            // else{
+            //     node.onmousewheel =function(ev){  
+            //         ev = ev|| event;
+            //         console.log(ev.wheelDelta);
+            //     }
+            // }
+
+            // if(node.onmousewheel){
+                node.onmousewheel =function(ev){  
+                    ev = ev|| event;
+                    console.log(ev.wheelDelta);
+                }
+            // }else{
+                // node.addEventListener("DOMMouseScroll",function(ev){
+                //         ev = ev||event;
+                //         console.log(ev.detail);
+                // })
+            // }
+        }
+    </script>
+</body>
+</html>
