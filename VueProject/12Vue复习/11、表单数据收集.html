@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+        <form>
+            姓名：<input type="text" v-model="student.name"><br>
+            年龄：<input type="text" v-model="student.age"><br>
+            性别：<input type="radio" name="sex" v-model="student.sex" value="男">
+           <input type="radio" name="sex" v-model="student.sex" value="女"><br>
+           爱好： <input type="checkbox" name="hobbit" value="吃" v-model="student.hobbit">吃
+            <input type="checkbox" name="hobbit" value="喝" v-model="student.hobbit">喝
+            <input type="checkbox" name="hobbit" value="玩" v-model="student.hobbit">玩<br>
+            城市：<select v-model="student.city">
+                <option v-for="item in city" :value="item.name" :key="item.id">{{item.name}}</option>
+            </select><br>
+            说明：<textarea name="" id="" cols="30" rows="10" v-model="student.desc"></textarea>
+            </form>
+            <input type="reset" value="提交" @click="submitData">
+    </div>
+    <script>
+        new Vue({
+            el:'.app',
+            data:{
+                student:{
+                    name:'',
+                    age: '',
+                    sex:'男',
+                    hobbit:[],
+                    city:'上海',
+                    desc:''
+                },
+                city:[
+                    {name:'广州',id:1},
+                    {name:'上海',id:2},
+                    {name:'武汉',id:3},
+                ]
+            },
+            methods:{
+                submitData(event){
+                    alert(JSON.stringify(this.student));
+                    event.preventDefault();
+                }   
+            }
+        })
+    </script>
+</body>
+</html>

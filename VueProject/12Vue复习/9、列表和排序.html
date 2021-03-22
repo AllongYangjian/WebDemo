@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="filterStr">
+        <br>
+        <ul>
+            <li v-for="(item,index) in filterArray" :key="index">
+                {{item.name}}--{{item.age}}
+            </li>
+        </ul>
+        <input type="button" value="升序" @click="sort=1">
+        <input type="button" value="降序" @click="sort=2">
+        <input type="button" value="原序" @click="sort=0">
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                sort:0,
+                filterStr:'',
+                arr:[
+                    {name:'s',age:1},
+                    {name:'b',age:5},
+                    {name:'ss',age:3},
+                    {name:'sbb',age:4}
+                ]
+            },
+            computed:{
+                filterArray(){
+                    // const {filterStr,arr} = this;
+                    let arr = this.arr.filter(item=>item.name.indexOf(this.filterStr)!==-1);
+                    if(this.sort ===0){
+                        return arr;
+                    }else{
+                        arr.sort((p1,p2)=>{
+                            if(this.sort === 1){
+                                return p1.age-p2.age;
+                            }else{
+                                return p2.age-p1.age;
+                            }
+                        })
+                    }
+                    return arr;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="demo">
+        <ul>
+            <li v-for="(item,index) in arrs" :key="index">
+                {{item.name}}--{{item.age}} 
+                <input type="button" value="删除" @click="deleteP(index)">
+                <input type="button" value="更新" @click="updatePU(index,{name:'sss',age:111})">
+
+            </li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+            el:'.demo',
+            data:{
+                arrs:[
+                    {name:'sb1',age:11},
+                    {name:'sb2',age:15},
+                    {name:'sb3',age:14},
+                    {name:'sb4',age:13}
+                ]
+            },
+            methods:{
+                deleteP(index){
+                    this.arrs.splice(index,1);
+                    // console.log(this.arr);
+                },
+                updatePU(index,newP){
+                    this.arrs.splice(index,1,newP);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

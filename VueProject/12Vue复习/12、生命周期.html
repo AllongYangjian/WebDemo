@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+        <div v-if="show" style="width: 100px;height: 100px;background-color:red;"></div>
+    </div>
+    <script>
+        new Vue({
+            el:'.app',
+            data:{
+                timeId:-1,
+                show:true
+            },
+            methods:{
+                
+            },
+            created(){
+                console.log('created');
+            },
+            mounted() {
+                console.log('mounted');
+                this.timeId =  setInterval(()=>{
+                    this.show =!this.show;
+                },1000);
+            },
+            beforeDestroy() {
+                console.log('destroyded');
+                clearInterval(this.timeId);
+            }
+        })
+    </script>
+</body>
+</html>

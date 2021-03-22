@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+    <style>
+        .aClass{
+            width: 100px;
+            height: 100px;
+            margin: 8px;
+            background-color: red;
+        }
+
+        .bClass{
+            width: 50px;
+            height: 50px;
+            margin: 16px;
+            background-color: lightblue;
+        }
+    
+    </style>
+</head>
+<body>  
+        <div class="app">
+            <div :class="{aClass:isActive}">
+
+            </div>
+            <input type="button" value="Class切换" @click="changeClass">
+            <div :class="clazz">
+
+            </div>
+            <div :class="clazz" :style="{color:fontColor,fontSize:fontSize+'px'}">123</div>
+            <input type="button" value="更换Class" @click="update">
+            <input type="button" value="更换Style" @click="changeStyle">
+            <vue-demo class="bClass">
+        
+            </vue-demo>
+        </div>
+        <script>
+            Vue.component('vue-demo',{
+                template:'<p class="aClass"></p>'
+            })
+            var app = new Vue({
+                el:".app",
+                data:{
+                    clazz:'aClass',
+                    fontColor:'red',
+                    fontSize:14,
+                    isActive:true
+                },
+                methods:{
+                    changeClass(){
+                        this.isActive = !this.isActive;
+                    },
+                    update(){
+                        this.clazz = 'bClass';
+                    },
+                    changeStyle(){
+                        this.fontColor = 'yellow';
+                        this.fontSize++;
+                    }
+                }
+
+            })
+        </script>
+</body>
+</html>
