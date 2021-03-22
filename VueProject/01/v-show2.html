@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+        <input type="button" @click="shows" v-text="value">
+        <div style="width: 200px;height: 200px;background-color: red;" v-if="show"></div>
+    </div>
+    <script>
+        var app = new Vue({
+            el:'.app',
+            data:{
+                show:true,
+                value:'显示'
+            },
+            methods:{
+                shows:function(){
+                    this.show = !this.show;
+                    if(this.show){
+                        this.value = '隐藏';
+                    }else{
+                        this.value = '显示';
+                    }
+                },
+                hide:function(){
+                    this.show = false;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

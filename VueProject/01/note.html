@@ -38,18 +38,18 @@
             border-bottom: 1px solid gray;
         }
 
-        .destory{
+        label.destory{
+            position: absolute;
             width: 16px;
             border: 0px;
-            right: 0;
-            visibility: hidden;
-            display:inline-block;
+            right: 16px;
+            display: none;
+            /* display:inline-block; */
             margin-left: 16px;
-            position: relative;
         }
 
-        .destory li:hover{
-            visibility: hidden;
+        li:hover .destory {
+            display: block;
         }
 
         #container p{
@@ -72,7 +72,8 @@
         <input type="text" v-model="inputValue" autofocus="true" autocomplete="true"  @keyup.enter="addItem">
         <ul>
             <li v-for="(item,index) in noteList">
-                <span style="margin-left: 8px;">{{index+1}}.</span>{{item}}<label style="display: inline-block;"></label><label class="destroy" @click="removeItem(index)" type="button" >x</label>
+                <span style="margin-left: 8px;">{{index+1}}.</span>{{item}}<label style="display: inline-block;"></label>
+                <label class="destroy" @click="removeItem(index)" type="button" >x</label>
             </li>
         </ul>
         <p v-show="noteList.length>0">{{noteList.length}} items <a href="#" @click="remove">clear</a></p>

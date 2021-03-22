@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ol>
+            <todo-item v-for="item in groceryList"  v-bind:todo="item" v-bind:click="changeValue" v-bind:key="item.id" ></todo-item>
+        </ol>
+    </div>
+</body>
+<script>
+    Vue.component('todo-item',{
+        props:['todo','click'],
+        template:'<li @click="click(todo.id)">{{todo.text}}</li>'
+    })
+
+    var app = new Vue({
+        el:'#app',
+        data:{
+            groceryList:[
+                {id:0,text:'蔬菜'},
+                {id:1,text:'大米'},
+                {id:2,text:'水果'}
+            ],
+            firstName:'sb'
+        },
+        methods: {
+            changeValue:function(index){
+                this.groceryList[index].text = new Date().getTime();
+                this.firstName = new Date().getTime();
+            }
+        },
+        created:function(){
+            console.log('created');        
+        },
+        watch:{//只能监听基本类型
+            'firstName':function(newValue,oldValue){
+                console.log(newValue,oldValue);
+            }
+            //报错
+            // 'groceryList[0]':function(newValue,oldValue){
+            //     console.log(newValue,oldValue);
+            // }
+        }
+    });
+
+    
+</script>
+</html>
