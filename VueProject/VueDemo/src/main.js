@@ -2,12 +2,13 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+import Comment from './components/news/Comment'
 
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  components: { App }, /* 将组件映射成标签 */
-  template: '<App/>'
+  components: { App ,Comment }, /* 将组件映射成标签 */
+  template: '<Comment/>'
 })
