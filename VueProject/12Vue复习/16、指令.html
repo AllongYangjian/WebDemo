@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+        <p v-upper-text="msg"></p>
+        <p v-lower-text="msg"></p>
+    </div>
+    <script>
+        //定义全局指定
+        //参数1：指定名
+        //参数2:指令函数
+        //      参数1：指令所在对象
+        //      参数2：指令对象,封装了指定所在对象的信息及其他相关信息
+        Vue.directive('upper-text',function(el,binding){
+            console.log(el,binding);
+            el.textContent = binding.value.toUpperCase();
+        })
+        new Vue({
+            el:".app",
+            data:{
+                msg:"I Love You"
+            },
+            directives:{
+                'lower-text':function(el,binding){
+                    el.textContent = binding.value.toLowerCase();
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/moment.js/2.21.0/moment.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        自定义过滤器
+        格式如下： 值|过滤器名称
+     -->
+    <div class="app">
+        <p>{{date|dateString}}</p>
+        <p>{{date | dateString('YYYY-MM-DD')}}</p>
+    </div>
+    <script>
+        //过滤器定义语法 过滤器名称
+        //参数1：要过滤的值
+        //参数2 ：过滤条件
+        Vue.filter('dateString',function(value,format){
+            return moment(value).format(format||'YYYY-MM-DD HH:mm:ss');
+        })
+
+        var vm = new Vue({
+            el:'.app',
+            data:{
+                date:new Date()
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 首先，引入插件 -->
+    <script type="text/javascript" src="./my-Plugin.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+        <p v-upper-text="msg"></p>
+    </div>
+    <script>
+        //2 声明插件
+        Vue.use(MyPlugin);
+        new Vue({
+            el:".app",
+            data:{
+                msg:'I Love You'
+            }
+        })
+    </script>
+</body>
+</html>
