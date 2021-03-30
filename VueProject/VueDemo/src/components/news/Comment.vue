@@ -10,8 +10,9 @@
       </div>
     </header>
     <div class="container">
-        <Add/>
-        <List :comments="comments"/>
+        <!-- <Add v-on:commit="commitItem"/> -->
+        <Add :addComments="commitItem"/>
+        <List :comments="comments" v-on:removeItem="removeItem"/>
     </div>
   </div>
 </template>
@@ -31,6 +32,14 @@ export default {
   },
   components:{
     Add,List
+  },
+  methods:{
+    commitItem:function(item){
+      this.comments.unshift(item);
+    },
+    removeItem:function(index){
+      this.comments.splice(index,1);
+    }
   }
 }
 </script>

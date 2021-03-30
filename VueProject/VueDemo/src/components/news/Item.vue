@@ -2,7 +2,7 @@
     <!-- <ul class="list-group"> -->
         <li class="list-group-item">
             <div class="handle">
-              <a href="javascript:;">删除</a>
+              <a href="javascript:;" @click="$emit('removeItem')">删除</a>
             </div>
             <p class="user"><span >{{item.name}}</span></p>
             <p class="centence">{{item.content}}</p>
