@@ -1,17 +1,15 @@
 <template>
   <div>
-    <HelloWorld/>
+    <HelloWorld />
   </div>
 </template>
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from "./components/HelloWorld.vue";
 
 export default {
   components: {
-    HelloWorld
-  }
+    HelloWorld,
+  },
 }
 </script>
-<style lang="">
-
-</style>
+<style lang=""></style>
