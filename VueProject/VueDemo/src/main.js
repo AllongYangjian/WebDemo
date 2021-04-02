@@ -1,9 +1,14 @@
 import Vue from 'vue'
 import App from './App'
-import router from './router'
+import Todo from './components/todo/Todo'
+import store from './store/store'
+
 new Vue({
     el:'#app',
-    components:{App},
-    template:'<App/>',
-    router
+    data:{
+
+    },
+    components:{App,Todo},
+    template:'<Todo/>',
+    store
 })
