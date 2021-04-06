@@ -26,6 +26,13 @@ export default {
   components: {
     Item,
   },
+  watch:{
+    todos:{
+      deep:true,
+      handler: val=>window.localStorage.setItem('sb',JSON.stringify(val))
+      
+    }
+  }
 };
 </script>
 

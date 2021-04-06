@@ -5,14 +5,14 @@ import VueX from 'vuex'
 Vue.use(VueX);
 
 const actions = {
-    deleteAsync(state){
+    deleteAsync({commit}){
         setTimeout(function(){
-            state.commit('removeComplete');
+            commit('removeComplete');
         },1000)
     },
-    deleteItemAsync(state,index){
+    deleteItemAsync({commit},index){
         setTimeout(()=>{
-            state.commit('removeItem',index)
+            commit('removeItem',index)
         },1000)
     }
 }
