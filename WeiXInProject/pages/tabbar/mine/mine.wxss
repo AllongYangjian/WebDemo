@@ -1,1 +1,13 @@
 /* pages/tabbar/mine/mine.wxss */
+/* 
+  page px = 750 rpx
+  1px  = 750/page
+  100px = 750/page*100
+*/
+@import "../../../styles/common.wxss";
+
+.text{
+  width: calc(100rpx * 750 / 375);
+  height: 100rpx;
+  background-color: rebeccapurple;
+}

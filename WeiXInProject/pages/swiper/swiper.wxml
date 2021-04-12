@@ -1,0 +1,16 @@
+<!--pages/swiper/swiper.wxml-->
+<text>pages/swiper/swiper.wxml</text>
+<swiper  class="swiper" indicator-dots="true" indicator-color="white" autoplay="true" interval="3000" circular>
+  <swiper-item >
+    <!-- <view class="swiper-item" style="background-color:red">1</view> -->
+    <image  mode="widthFix" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fattach.bbs.miui.com%2Fforum%2F201111%2F24%2F1848523739m7d55a3pzq0g.jpg&refer=http%3A%2F%2Fattach.bbs.miui.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620828188&t=36a5c78f66ba5e9d502be1c6fbf7fef0"></image>
+  </swiper-item>
+  <swiper-item>
+    <!-- <view  class="swiper-item" style="background-color:yellow">2</view> -->
+    <image mode="widthFix" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.jj20.com%2Fup%2Fallimg%2Fmx12%2F0F420115037%2F200F4115037-11.jpg&refer=http%3A%2F%2Fpic.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620828188&t=26b9825f80b626765f8ac08b856868b8"></image>
+  </swiper-item>
+  <swiper-item>
+    <!-- <view  class="swiper-item" style="background-color:green">3</view> -->
+    <image mode="widthFix"  src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.jj20.com%2Fup%2Fallimg%2F1114%2F0H320120Z3%2F200H3120Z3-6-1200.jpg&refer=http%3A%2F%2Fpic.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620828188&t=0724dcd63605aa6466634bc909a096f6"></image>
+  </swiper-item>
+</swiper>

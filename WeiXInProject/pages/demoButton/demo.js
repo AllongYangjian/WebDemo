@@ -1,11 +1,15 @@
-// pages/tabbar/img/img.js
+// pages/demoButton/demo.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    demo:'ss'
+
+  },
+
+  getPhoneNumber:function(e){
+    console.log(e);
   },
 
   /**

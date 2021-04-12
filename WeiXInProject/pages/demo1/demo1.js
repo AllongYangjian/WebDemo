@@ -1,11 +1,11 @@
-// pages/tabbar/img/img.js
+// pages/demo1/demo1.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    demo:'ss'
+
   },
 
   /**

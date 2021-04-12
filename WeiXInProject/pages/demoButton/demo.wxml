@@ -1,0 +1,9 @@
+<!--pages/demoButton/demo.wxml-->
+<text>pages/demoButton/demo.wxml</text>
+<button>默认按钮</button>
+<button size="mini" >默认按钮</button>
+<button type="warn" plain="false" open-type="contact">默认按钮</button>
+<button type="primary" open-type="share">primary</button>
+<button type="warn">primary</button>
+<button type="default">default</button>
+<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号码</button>

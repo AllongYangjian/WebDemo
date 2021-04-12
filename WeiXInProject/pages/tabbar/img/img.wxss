@@ -1,1 +1,8 @@
 /* pages/tabbar/img/img.wxss */
+.sb{
+  /* display: flex; */
+  width: fixed;
+  height: fixed;
+  background-color: #000;
+  color: white;
+}

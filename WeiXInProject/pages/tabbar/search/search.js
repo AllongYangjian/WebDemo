@@ -5,7 +5,23 @@ Page({
    * 页面的初始数据
    */
   data: {
+    num:123,
+    student:{name:'yj',age:28}
+  },
 
+  handleInput(e){
+    this.setData({num:e.detail.value})
+  },
+
+  addNum(e){
+    // console.log(e);
+    //获取自定义属性
+    console.log(e.currentTarget.dataset.operation)
+    console.log(e.currentTarget.dataset.student)
+    this.setData({num:++this.data.num})
+  },
+  decreaseNum(){
+    this.setData({num:--this.data.num})
   },
 
   /**

@@ -1,2 +1,8 @@
 <!--pages/tabbar/search/search.wxml-->
-<text>pages/tabbar/search/search.wxml</text>
+<!-- 如果需要添加参数，需要通过自定义属性的方式实现 
+  data-属性名=“{{num}}”
+-->
+<button bindtap="addNum" data-operation="{{1}}" data-student="{{student}}">+</button>
+<input type="text" bindinput="handleInput" class="inp" model:value="{{num}}"/>
+<button bindtap="decreaseNum">-</button>
+<view>{{num}}</view>

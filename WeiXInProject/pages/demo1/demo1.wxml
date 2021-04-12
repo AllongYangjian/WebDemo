@@ -1,0 +1,3 @@
+<!--pages/demo1/demo1.wxml-->
+<text>pages/demo1/demo1.wxml</text>
+<image mode="aspectFit" lazy-load="true" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fattach.bbs.miui.com%2Fforum%2F201110%2F20%2F104403vda4avlux65a4dq4.jpg&refer=http%3A%2F%2Fattach.bbs.miui.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1620828188&t=5d8d6d4691770186b2f49d754d188c1b"></image>

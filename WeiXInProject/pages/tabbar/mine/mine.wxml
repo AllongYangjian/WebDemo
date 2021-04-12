@@ -1,2 +1,5 @@
 <!--pages/tabbar/mine/mine.wxml-->
 <text>pages/tabbar/mine/mine.wxml</text>
+<view class="text">
+  123
+</view>

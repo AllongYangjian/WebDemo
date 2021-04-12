@@ -1,5 +1,9 @@
 {
   "pages": [
+    "pages/demoButton/demo",
+    "pages/navigator/navigator",
+    "pages/swiper/swiper",
+    "pages/demo1/demo1",
     "pages/index/index",
     "pages/logs/logs",
     "pages/settings/settings",
@@ -30,7 +34,7 @@
         "selectedIconPath": "icon/ic_img_selected.png"
       },
       {
-        "pagePath": "pages/tabbar/mine/mine",
+        "pagePath": "pages/tabbar/search/search",
         "text": "搜索",
         "iconPath": "icon/ic_search.png",
         "selectedIconPath": "icon/ic_search_selected.png"

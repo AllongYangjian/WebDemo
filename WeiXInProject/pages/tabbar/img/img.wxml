@@ -1,2 +1,18 @@
 <!--pages/tabbar/img/img.wxml-->
-<text>pages/tabbar/img/img.wxml</text>
+<!-- 
+text 标签相当于web中的span标签，行内元素，不会换行
+view 标签相当于div标签，块元素，会换行
+
+ -->
+ <view class="sb">
+   <!-- 自定属性要加‘data-’前缀  -->
+<text data-hh="{{demo}}">{{demo}}</text>
+</view>
+<view>
+<view>条件渲染</view>
+<!-- 修改是否存在 -->
+<view wx:if="{{false}}">sb</view>
+<view wx:else>bs</view>
+<!-- 修改display属性 -->
+<view hidden="{{true}}">hidden</view>
+</view>

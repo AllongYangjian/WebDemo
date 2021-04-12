@@ -1,0 +1,14 @@
+/* pages/swiper/swiper.wxss */
+
+.swiper{
+  background-color: lightgray;
+}
+.swiper-item{
+  width: 100%;
+  /* height: 200rpx; */
+  height: 100%;
+}
+
+.swiper image{
+  width: 100%;
+}

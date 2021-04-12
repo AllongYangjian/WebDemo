@@ -1,1 +1,9 @@
 /* pages/tabbar/search/search.wxss */
+.inp{
+  width: 100px;
+  border: 1px solid red;
+}
+
+button{
+  /* display: inline-block; */
+}

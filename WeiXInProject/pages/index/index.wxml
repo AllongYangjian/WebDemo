@@ -20,4 +20,11 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
+  <view wx:for="list"
+    wx:for-item="item"
+    wx:for-index="index"
+    wx:key="index">
+    索引：{{index}}--值{{item.name}}
+  </view>
+  <text user-select="true">123</text>
 </view>
