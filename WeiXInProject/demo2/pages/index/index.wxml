@@ -1,5 +1,25 @@
 <!--index.wxml-->
 <view>
   <SearchInput></SearchInput>
+  <view class="index_swiper">
+    <!-- 
+      swiper 存在默认宽高  100%,150px
+      image 存在默认宽高 320px 240px
+    -->
+    <swiper autoplay indicator-dots circular>
+      <swiper-item  wx:for="{{swiperList}}" wx:key="goods_id">
+       <navigator url="{{item.navigator_url}}" open-type="{{item.open_type}}">
+        <image mode="widthFix" src="{{item.image_src}}"></image>
+       </navigator>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="index_cate">
+    <navigator
+    wx:for="{{catesList}}"
+    wx:key="name">
+      <image mode="widthFix" src="{{item.image_src}}" />
+      {{name}}
+    </navigator>
+  </view>
 </view>
-
