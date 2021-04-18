@@ -7,7 +7,8 @@ const app = getApp()
 Page({
   data: {
     swiperList: [],
-    catesList:[]
+    catesList:[],
+    floorList:[]
   },
   onLoad: function (options) {
     // wx.request({
@@ -22,6 +23,7 @@ Page({
     // })
     this.getSwiperList();
     this.getCateList();
+    this.getFloorList();
   },
   /**
    *  请求轮播图地址
@@ -46,6 +48,16 @@ Page({
       if (result.data.meta.status === 200) {
         this.setData({
           catesList: result.data.message
+        });
+      }
+    })
+  },
+  getFloorList:function(){
+    request({url:'https://api-hmugo-web.itheima.net/api/public/v1/home/floordata',method:'get'})
+    .then(result=>{
+      if (result.data.meta.status === 200) {
+        this.setData({
+          floorList: result.data.message
         });
       }
     })
