@@ -1,0 +1,10 @@
+<!--pages/demoComponents/demoComponents.wxml-->
+<!-- 父组件向子组件传递数据，通过属性来传递 -->
+<Tabs aaa="123" tabs="{{tabs}}" binditemChange="changeIndex">
+ <block>
+   <view wx:if="{{tabs[0].isActive}}">{{tabs[0].name}}</view>
+   <view wx:elif="{{tabs[1].isActive}}">{{tabs[1].name}}</view>
+   <view wx:elif="{{tabs[2].isActive}}">{{tabs[2].name}}</view>
+   <view wx:else="{{tabs[3].isActive}}">{{tabs[3].name}}</view>
+ </block>
+</Tabs>
