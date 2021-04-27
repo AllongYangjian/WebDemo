@@ -16,6 +16,8 @@
     "pages/pay/index"
   ],
   "tabBar": {
+    "color": "#000",
+    "selectedColor": "#eb4450",
     "list": [
       {
         "pagePath": "pages/index/index",

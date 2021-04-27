@@ -1,4 +1,5 @@
 // pages/good_detail/index.js
+import {request} from '../../request/index'
 Page({
 
   /**
@@ -12,7 +13,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let goods_id = {options};
+    console.log(goods_id);
+    this.getGoodsDetail(goods_id);
+  },
+  getGoodsDetail(id){
+    request({url:'/goods/detail',data:{id}})
+    .then(res=>{
+      console.log(res);
+    })
   },
 
   /**

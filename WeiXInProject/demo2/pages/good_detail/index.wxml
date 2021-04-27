@@ -1,2 +1,4 @@
 <!--pages/good_detail/index.wxml-->
-<text>pages/good_detail/index.wxml</text>
+<view class="detail">
+  <!-- <SearchInput></SearchInput> -->
+</view>

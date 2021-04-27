@@ -1,3 +1,8 @@
+/**
+ * 文档地址:https://www.showdoc.com.cn/128719739414963
+ * 
+ */
+
 // index.js
 import {
   request
@@ -31,35 +36,30 @@ Page({
    */
   getSwiperList:function (params) {
     request({
-      url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata',
+      url: '/home/swiperdata',
       method: 'get'
     })
     .then(result => {
-      if (result.data.meta.status === 200) {
         this.setData({
-          swiperList: result.data.message
+          swiperList: result
         });
-      }
+  
     })
   },
   getCateList:function () {
-    request({url:'https://api-hmugo-web.itheima.net/api/public/v1/home/catitems',method:'get'})
+    request({url:'/home/catitems',method:'get'})
     .then(result=>{
-      if (result.data.meta.status === 200) {
         this.setData({
-          catesList: result.data.message
+          catesList: result
         });
-      }
     })
   },
   getFloorList:function(){
-    request({url:'https://api-hmugo-web.itheima.net/api/public/v1/home/floordata',method:'get'})
+    request({url:'/home/floordata',method:'get'})
     .then(result=>{
-      if (result.data.meta.status === 200) {
         this.setData({
-          floorList: result.data.message
+          floorList: result
         });
-      }
     })
   }
 })
